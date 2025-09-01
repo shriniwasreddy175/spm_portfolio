@@ -14,7 +14,7 @@ export function Projects() {
       title: "Smart MedCare",
       description:
         "IoT Health Monitoring system tracking vitals (BP, heart rate, SpO₂, temp) and hormones, with real-time alerts and rural-friendly design.",
-      image: "./src/assets/smart_medcare.jpg",
+      image: "/src/assets/smart_medcare.jpg",
       technologies: ["IoT", "ESP32", "Sensors", "Android", "Healthcare"],
       liveUrl: "#",
       githubUrl: "#",
@@ -23,7 +23,7 @@ export function Projects() {
       title: "Smart Xerox Centers",
       description:
         "End-to-end print job queue with user/admin dashboards, cost calculation, UPI/QR payments, and live leaderboards.",
-      image: "./src/assets/smart_xerox_centers.jpg",
+      image: "/src/assets/smart_xerox_centers.jpg",
       technologies: ["Web", "Queue", "Payments", "UPI", "Dashboards"],
       liveUrl: "#",
       githubUrl: "#",
@@ -32,7 +32,7 @@ export function Projects() {
       title: "Local Chat App",
       description:
         "Encrypted chat with integrity verification. Includes UI, key handling, and example attacks/defenses write-up.",
-      image: "./src/assets/local_chat_app.jpg",
+      image: "/src/assets/local_chat_app.jpg",
       technologies: ["Security", "Java", "Python", "Crypto", "App"],
       liveUrl: "#",
       githubUrl: "#",
@@ -41,7 +41,7 @@ export function Projects() {
       title: "Smart Radar System",
       description:
         "Radar-like IoT system for detecting objects in real-time using sensors and ESP32, visualized with live feedback.",
-      image: "./src/assets/Smart_Radar_System.png",
+      image: "/src/assets/Smart_Radar_System.png",
       technologies: ["IoT", "Radar", "Sensors", "ESP32"],
       liveUrl: "#",
       githubUrl: "#",
@@ -50,7 +50,7 @@ export function Projects() {
       title: "Privacy Over Media",
       description:
         "An intelligent privacy-preserving system that hides sensitive user data over social media platforms using genetic algorithms.",
-      image: "./src/assets/Privacy_Over_Media.png",
+      image: "/src/assets/Privacy_Over_Media.png",
       technologies: ["AI", "Genetic Algorithm", "Privacy", "Social Media"],
       liveUrl: "#",
       githubUrl: "#",

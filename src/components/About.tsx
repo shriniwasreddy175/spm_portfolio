@@ -32,7 +32,7 @@ export function About() {
       icon: Smartphone,
       title: "Mobile Development",
       description:
-        "Cross-platform mobile apps using React Native and Flutter.",
+        "Cross-platform for developing mobile apps using React Native and Flutter.",
     },
   ];
 

@@ -41,7 +41,7 @@ export function Projects() {
       title: "Smart Radar System",
       description:
         "Radar-like IoT system for detecting objects in real-time using sensors and ESP32, visualized with live feedback.",
-      image: "/assets/Smart_Radar_System.png",
+      image: "/assets/Smart_Radar_System.jpg",
       technologies: ["IoT", "Radar", "Sensors", "ESP32", "Servo-motor", "Arduino"],
       liveUrl: "#",
       githubUrl: "#",
@@ -50,7 +50,7 @@ export function Projects() {
       title: "Privacy Over Media",
       description:
         "An intelligent privacy-preserving system that hides sensitive user data over social media platforms using genetic algorithms.",
-      image: "/assets/Privacy_Over_Media.png",
+      image: "/assets/Privacy_Over_Media.jpg",
       technologies: ["AI", "Genetic Algorithm", "Privacy", "Social Media"],
       liveUrl: "#",
       githubUrl: "#",

@@ -8,7 +8,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { Mail, Phone, MapPin, Github, Linkedin, Loader2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; 
 
 export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -21,12 +21,17 @@ export function Contact() {
 
     setLoading(true);
 
+    console.log(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
     emailjs
-    .sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formRef.current!,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         )
       .then(
         () => {

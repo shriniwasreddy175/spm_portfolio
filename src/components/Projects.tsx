@@ -14,7 +14,7 @@ export function Projects() {
       title: "Smart MedCare",
       description:
         "IoT Health Monitoring system tracking vitals (BP, heart-rate, SpO₂) and hormones, with real-time alerts and rural-friendly design.",
-      image: "/assets/smart_medcare.jpg",
+      image: "/assets/Smart_MedCare.jpg",
       technologies: ["IoT", "ESP32", "Sensors", "Android", "Healthcare"],
       liveUrl: "#",
       githubUrl: "#",
@@ -23,7 +23,7 @@ export function Projects() {
       title: "Smart Xerox Centers",
       description:
         "End-to-end print job queue with user/admin dashboards, cost calculation, UPI/QR payments, and live leaderboards.",
-      image: "/assets/smart_xerox_centers.jpg",
+      image: "/assets/Smart_Xerox_Centers.jpg",
       technologies: ["Web", "Queue", "Payments", "UPI", "Dashboards"],
       liveUrl: "#",
       githubUrl: "#",
@@ -32,7 +32,7 @@ export function Projects() {
       title: "Local Chat App",
       description:
         "Encrypted chat with integrity verification. Includes UI, key handling, and example attacks/defenses write-up.",
-      image: "/assets/local_chat_app.jpg",
+      image: "/assets/Local_Chat_App.jpg",
       technologies: ["Security", "Java", "Python", "Crypto", "Encryption", "App"],
       liveUrl: "#",
       githubUrl: "#",

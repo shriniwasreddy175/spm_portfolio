@@ -57,13 +57,13 @@ export function Navigation() {
         
         {/* Logo */}
         <div
-          className="flex items-center gap-2 font-bold text-xl cursor-pointer transition duration-300 hover:text-primary hover:shadow-lg hover:shadow-primary/50 px-2 py-1 rounded-lg"
+          className="flex items-center gap-2 font-bold text-xl cursor-pointer transition duration-300 hover:text-primary hover:shadow-lg hover:scale-105 px-3 py-2 rounded-lg"
           onClick={() => scrollToSection("home")}
         >
         <img
-          src="https://spm175-portfolio.vercel.app/Profile_photo.jpg"
+          src="/Profile_photo.jpg"
           alt="Logo"
-          className="w-13 h-13 rounded-full border-2 border-primary object-cover transition-colors duration-300 hover:border-secondary"
+          className="w-13 h-13 rounded-full border-2 border-primary object-cover transition-colors duration-300 hover:border-secondary shadow-[0_0_20px_rgba(59,130,246,1)]"
         />
         Shriniwas Mare
         </div>

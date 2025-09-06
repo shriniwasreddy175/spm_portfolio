@@ -8,47 +8,46 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { Mail, Phone, MapPin, Github, Linkedin, Loader2 } from "lucide-react";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 
 export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<"success" | "error" | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const sendEmail = (e: React.FormEvent) => {
+  const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
 
     setLoading(true);
 
-    console.log(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID_AutoReply,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ContactUs,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    );
-    emailjs
-      .sendForm(
+    try {
+      // 1. Send auto-reply to user (silent, no UI message)
+      await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID_AutoReply,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ContactUs,
-        formRef.current!,
+        formRef.current,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        )
-      .then(
-        () => {
-          setStatus("success");
-          setLoading(false);
-          formRef.current?.reset();
-          setTimeout(() => setStatus(null), 4000);
-        },
-        (error) => {
-          setStatus("error");
-          setLoading(false);
-          console.error(error);
-          setTimeout(() => setStatus(null), 4000);
-        }
       );
+
+      // 2. Send message to you (ContactUs template)
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ContactUs,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      setStatus("success");
+      setLoading(false);
+      formRef.current?.reset();
+      setTimeout(() => setStatus(null), 4000);
+    } catch (error) {
+      console.error("❌ EmailJS error:", error);
+      setStatus("error");
+      setLoading(false);
+      setTimeout(() => setStatus(null), 4000);
+    }
   };
 
   const contactInfo = [

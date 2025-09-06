@@ -14,6 +14,7 @@ export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<"success" | "error" | null>(null);
   const [loading, setLoading] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -82,7 +83,17 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-20 px-4 overflow-hidden">
+    <section 
+      id="contact" 
+      className="relative py-20 px-4 overflow-hidden"
+      onMouseMove={(e) => {
+        const { innerWidth, innerHeight } = window;
+        setMousePos({
+          x: (e.clientX - innerWidth / 2) / 50,
+          y: (e.clientY - innerHeight / 2) / 50,
+        });
+      }}
+    >
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/10 pointer-events-none" />
 
@@ -94,6 +105,7 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
+          animate={{ x: mousePos.x * 0.7, y: mousePos.y * 0.7 }}
         >
           <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -111,6 +123,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
+            animate={{ x: mousePos.x * 0.7, y: mousePos.y * 0.7 }}
           >
             <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-8">
@@ -209,6 +222,7 @@ export function Contact() {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
             className="space-y-8"
+            animate={{ x: mousePos.x, y: mousePos.y }}
           >
             <div>
               <h3 className="text-2xl font-semibold mb-6">
@@ -218,7 +232,11 @@ export function Contact() {
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
                   const content = (
-                    <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:scale-[1.02] hover:shadow-md transition-transform">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:shadow-md transition-transform"
+                    >
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                         <Icon className="h-6 w-6 text-primary" />
                       </div>
@@ -226,7 +244,7 @@ export function Contact() {
                         <p className="font-medium">{info.label}</p>
                         <p className="text-muted-foreground">{info.value}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   );
 
                   return info.href ? (

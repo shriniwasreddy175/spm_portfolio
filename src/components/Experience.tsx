@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export function Experience() {
   const [showAll, setShowAll] = useState(false);
   const [lineHeight, setLineHeight] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -110,7 +111,16 @@ export function Experience() {
   }, [displayedExperiences, showAll]);
 
   return (
-    <section className="py-20 px-4 bg-muted/30">
+    <section 
+      className="py-20 px-4 bg-muted/30 relative"
+      onMouseMove={(e) => {
+        const { innerWidth, innerHeight } = window;
+        setMousePos({
+          x: (e.clientX - innerWidth / 2) / 50,
+          y: (e.clientY - innerHeight / 2) / 50,
+        });
+      }}
+    >
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -119,6 +129,7 @@ export function Experience() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
+          animate={{ x: mousePos.x * 0.5, y: mousePos.y * 0.5 }}
         >
           <h2 className="text-4xl font-bold mb-4">Experience & Education</h2>
           <p className="text-lg text-muted-foreground">
@@ -135,7 +146,10 @@ export function Experience() {
             className="absolute left-8 top-0 w-0.5 bg-border hidden md:block"
           />
 
-          <div className="space-y-8">
+          <motion.div 
+            className="space-y-8"
+            animate={{ x: mousePos.x, y: mousePos.y }}
+          >
             <AnimatePresence>
               {displayedExperiences.map((exp, index) => (
                 <motion.div
@@ -239,7 +253,7 @@ export function Experience() {
                 </motion.div>
               ))}
             </AnimatePresence>
-          </div>
+          </motion.div>
         </div>
 
         {/* View All / View Less Button */}

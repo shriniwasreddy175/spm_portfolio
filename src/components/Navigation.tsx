@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const navItems = [
     { id: "home", label: "Home" },
@@ -39,12 +40,30 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  // New Effect for Parallax
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { innerWidth, innerHeight } = window;
+      setMousePos({
+        x: (e.clientX - innerWidth / 2) / 50,
+        y: (e.clientY - innerHeight / 2) / 50,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const menuVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
@@ -55,18 +74,22 @@ export function Navigation() {
     >
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         
-        {/* Logo */}
-        <div
+        {/* Logo with Parallax */}
+        <motion.div
           className="flex items-center gap-2 font-bold text-xl cursor-pointer transition duration-300 hover:text-primary hover:shadow-lg hover:scale-105 px-3 py-2 rounded-lg"
           onClick={() => scrollToSection("home")}
+          animate={{ x: mousePos.x, y: mousePos.y }}
+          transition={{ type: "spring", stiffness: 50, damping: 20 }}
         >
-        <img
+        <motion.img
           src="/Profile_photo.jpg"
           alt="Logo"
-          className="w-13 h-13 rounded-full border-2 border-primary object-cover transition-colors duration-300 hover:border-secondary shadow-[0_0_20px_rgba(59,130,246,1)]"
+          className="w-10 h-10 rounded-full border-2 border-primary object-cover transition-colors duration-300 hover:border-secondary shadow-[0_0_20px_rgba(59,130,246,1)]"
+          whileHover={{ rotate: 5, scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 300 }}
         />
         Shriniwas Mare
-        </div>
+        </motion.div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
@@ -76,13 +99,19 @@ export function Navigation() {
               onClick={() => scrollToSection(item.id)}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-medium transition-colors relative ${
                 activeSection === item.id
-                  ? "text-primary"
+                  ? "text-primary after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-primary"
                   : "text-muted-foreground hover:text-primary"
               }`}
             >
               {item.label}
+              {activeSection === item.id && (
+                <motion.div
+                  className="absolute bottom-[-4px] left-0 right-0 h-[2px] bg-primary"
+                  layoutId="underline"
+                />
+              )}
             </motion.button>
           ))}
 
@@ -124,11 +153,20 @@ export function Navigation() {
             </div>
 
             {/* Nav Items */}
-            <div className="flex flex-col gap-6">
+            <motion.div
+              className="flex flex-col gap-6"
+              variants={{
+                show: { transition: { staggerChildren: 0.1 } },
+                hidden: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+              }}
+              initial="hidden"
+              animate="show"
+            >
               {navItems.map((item) => (
                 <motion.button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
+                  variants={menuVariants}
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="text-lg font-medium text-left text-muted-foreground hover:text-primary transition-colors"
@@ -136,7 +174,7 @@ export function Navigation() {
                   {item.label}
                 </motion.button>
               ))}
-            </div>
+            </motion.div>
 
             {/* Resume */}
             <div className="mt-8">

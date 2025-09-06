@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 export function About() {
   const [showFull, setShowFull] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const highlights = [
     {
@@ -62,12 +63,21 @@ export function About() {
   ];
 
   const bio = `Diploma student in Computer Engineering at Government Polytechnic Pune, building full-stack web, mobile, and IoT projects with a focus on usability and performance. 
-  Passionate about creating scalable and user-friendly solutions, learning emerging technologies, and contributing to real-world projects that solve problems effectively.`;
+  Passionately about creating scalable and user-friendly solutions, learning emerging technologies, and contributing to real-world projects that solve problems effectively.`;
 
   const truncatedBio = bio.split(" ").slice(0, 20).join(" ") + "...";
 
   return (
-    <section className="py-20 px-4 bg-muted/30">
+    <section 
+      className="py-20 px-4 bg-muted/30 relative"
+      onMouseMove={(e) => {
+        const { innerWidth, innerHeight } = window;
+        setMousePos({
+          x: (e.clientX - innerWidth / 2) / 50,
+          y: (e.clientY - innerHeight / 2) / 50,
+        });
+      }}
+    >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -76,6 +86,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
+          animate={{ x: mousePos.x * 0.5, y: mousePos.y * 0.5 }}
         >
           <h2 className="text-4xl font-bold mb-4">About Me</h2>
           <motion.p
@@ -108,6 +119,7 @@ export function About() {
               transition: { staggerChildren: 0.2 },
             },
           }}
+          animate={{ x: mousePos.x * 0.7, y: mousePos.y * 0.7 }}
         >
           {highlights.map((highlight, index) => {
             const Icon = highlight.icon;
@@ -118,6 +130,8 @@ export function About() {
                   hidden: { opacity: 0, y: 30 },
                   show: { opacity: 1, y: 0 },
                 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
                 <Card className="text-center p-6 hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6 space-y-4">
@@ -149,6 +163,7 @@ export function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="flex flex-col items-center text-center"
+            animate={{ x: mousePos.x, y: mousePos.y }}
           >
             <h3 className="text-2xl font-semibold mb-6">Skills</h3>
             <motion.div
@@ -168,6 +183,8 @@ export function About() {
                     hidden: { opacity: 0, scale: 0.8 },
                     show: { opacity: 1, scale: 1 },
                   }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <Badge variant="secondary" className="px-4 py-2">
                     {skill}
@@ -184,6 +201,7 @@ export function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="flex flex-col items-center text-center"
+            animate={{ x: mousePos.x, y: mousePos.y }}
           >
             <h3 className="text-2xl font-semibold mb-6">
               Technologies I Work With
@@ -205,6 +223,8 @@ export function About() {
                     hidden: { opacity: 0, scale: 0.8 },
                     show: { opacity: 1, scale: 1 },
                   }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <Badge variant="secondary" className="px-4 py-2">
                     {tech}

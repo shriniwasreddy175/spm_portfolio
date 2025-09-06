@@ -9,6 +9,8 @@ import { ExternalLink, Github } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Projects() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
   const projects = [
     {
       title: "Smart MedCare",
@@ -62,7 +64,17 @@ export function Projects() {
   const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
-    <section id="projects" className="py-20 px-4">
+    <section 
+      id="projects" 
+      className="py-20 px-4 relative"
+      onMouseMove={(e) => {
+        const { innerWidth, innerHeight } = window;
+        setMousePos({
+          x: (e.clientX - innerWidth / 2) / 50,
+          y: (e.clientY - innerHeight / 2) / 50,
+        });
+      }}
+    >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -71,13 +83,17 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
+          animate={{ x: mousePos.x * 0.7, y: mousePos.y * 0.7}}
         >
           <h2 className="text-4xl font-bold mb-2">Projects</h2>
           <p className="text-lg text-muted-foreground">Selected Work</p>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8"
+          animate={{ x: mousePos.x, y: mousePos.y }}
+        >
           <AnimatePresence>
             {visibleProjects.map((project, index) => (
               <motion.div
@@ -174,7 +190,7 @@ export function Projects() {
               </motion.div>
             ))}
           </AnimatePresence>
-        </div>
+        </motion.div>
 
         {/* View All Projects Button */}
         <motion.div

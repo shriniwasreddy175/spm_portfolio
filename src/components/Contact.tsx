@@ -23,13 +23,15 @@ export function Contact() {
 
     console.log(
       import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID_AutoReply,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ContactUs,
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     );
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID_AutoReply,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ContactUs,
         formRef.current!,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         )

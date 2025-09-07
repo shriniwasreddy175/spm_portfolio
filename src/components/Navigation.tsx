@@ -40,8 +40,7 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
-  // New Effect for Parallax
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const { innerWidth, innerHeight } = window;
@@ -73,7 +72,6 @@ export function Navigation() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        
         {/* Logo with Parallax */}
         <motion.div
           className="flex items-center gap-2 font-bold text-xl cursor-pointer transition duration-300 hover:text-primary hover:shadow-lg hover:scale-105 px-3 py-2 rounded-lg"
@@ -81,14 +79,14 @@ export function Navigation() {
           animate={{ x: mousePos.x, y: mousePos.y }}
           transition={{ type: "spring", stiffness: 50, damping: 20 }}
         >
-        <motion.img
-          src="/Profile_photo.jpg"
-          alt="Logo"
-          className="w-10 h-10 rounded-full border-2 border-primary object-cover transition-colors duration-300 hover:border-secondary shadow-[0_0_20px_rgba(59,130,246,1)]"
-          whileHover={{ rotate: 5, scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        />
-        Shriniwas Mare
+          <motion.img
+            src="/Profile_photo.jpg"
+            alt="Logo"
+            className="w-10 h-10 rounded-full border-2 border-primary object-cover transition-colors duration-300 hover:border-secondary shadow-[0_0_20px_rgba(59,130,246,1)]"
+            whileHover={{ rotate: 5, scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          />
+          Shriniwas Mare
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -129,68 +127,92 @@ export function Navigation() {
         </div>
 
         {/* Mobile Navigation */}
-        <Sheet>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Open menu</span>
-            </Button>
-          </SheetTrigger>
+<Sheet>
+  <SheetTrigger asChild className="md:hidden">
+    <Button variant="ghost" size="icon">
+      <Menu className="h-6 w-6" />
+      <span className="sr-only">Open menu</span>
+    </Button>
+  </SheetTrigger>
 
-          <SheetContent
-            side="right"
-            className="w-80 bg-background/90 backdrop-blur-md p-6 flex flex-col justify-between"
-          >
-            {/* Header */}
-            <div className="flex justify-between items-center mb-8">
-              <span className="font-bold text-xl">Menu</span>
-              <SheetClose asChild>
-                <Button variant="ghost" size="icon">
-                  <X className="h-6 w-6" />
-                  <span className="sr-only">Close menu</span>
-                </Button>
-              </SheetClose>
-            </div>
+  {/* Keep SheetContent wrapper (we'll render transparent background + animated drawer inside) */}
+  <SheetContent side="right" className="p-0 border-0 bg-transparent">
+    {/* Overlay (clicking it closes the sheet) */}
+    <SheetClose asChild>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.22 }}
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+      />
+    </SheetClose>
 
-            {/* Nav Items */}
-            <motion.div
-              className="flex flex-col gap-6"
-              variants={{
-                show: { transition: { staggerChildren: 0.1 } },
-                hidden: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
-              }}
-              initial="hidden"
-              animate="show"
+    {/* Drawer Panel (animated slide-in) */}
+    <motion.aside
+      initial={{ x: "100%" }}
+      animate={{ x: 0 }}
+      exit={{ x: "100%" }}
+      transition={{ type: "spring", stiffness: 120, damping: 20 }}
+      className="fixed top-0 right-0 h-full w-80 z-50 p-6
+                 bg-white dark:bg-neutral-900 text-black dark:text-white
+                 shadow-2xl border-l border-primary/20 flex flex-col justify-between"
+    >
+      {/* Header */}
+      <div className="flex justify-between items-center mb-8">
+        <span className="font-bold text-xl text-black dark:text-white">Menu</span>
+        <SheetClose asChild>
+          <Button variant="ghost" size="icon">
+            <X className="h-6 w-6 text-black dark:text-white hover:text-primary" />
+            <span className="sr-only">Close menu</span>
+          </Button>
+        </SheetClose>
+      </div>
+
+      {/* Nav Items */}
+      <motion.div
+        className="flex flex-col gap-6"
+        variants={{
+          show: { transition: { staggerChildren: 0.08 } },
+          hidden: { transition: { staggerChildren: 0.03, staggerDirection: -1 } },
+        }}
+        initial="hidden"
+        animate="show"
+      >
+        {navItems.map((item) => (
+          // Wrap each item with SheetClose so tapping it closes the drawer
+          <SheetClose asChild key={item.id}>
+            <motion.button
+              onClick={() => scrollToSection(item.id)}
+              whileHover={{ scale: 1.04 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="text-lg font-medium text-left text-black dark:text-white hover:text-primary transition-colors"
             >
-              {navItems.map((item) => (
-                <motion.button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  variants={menuVariants}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="text-lg font-medium text-left text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {item.label}
-                </motion.button>
-              ))}
-            </motion.div>
+              {item.label}
+            </motion.button>
+          </SheetClose>
+        ))}
+      </motion.div>
 
-            {/* Resume */}
-            <div className="mt-8">
-              <Button asChild className="w-full">
-                <motion.a
-                  href="/assets/spm175-resume.pdf"
-                  whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.15)" }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="inline-block text-center w-full"
-                >
-                  Resume
-                </motion.a>
-              </Button>
-            </div>
-          </SheetContent>
-        </Sheet>
+      {/* Resume */}
+      <div className="mt-8">
+        <Button
+    asChild
+    className="w-full bg-primary hover:bg-primary/90 text-black dark:text-white shadow-md hover:shadow-xl transition-all">
+          <motion.a
+            href="/assets/spm175-resume.pdf"
+            whileHover={{ scale: 1.03, boxShadow: "0px 8px 20px rgba(59,130,246,0.25)" }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="inline-block text-center w-full font-semibold tracking-wide"
+          >
+            Resume
+          </motion.a>
+        </Button>
+      </div>
+    </motion.aside>
+  </SheetContent>
+</Sheet>
+
       </div>
     </nav>
   );

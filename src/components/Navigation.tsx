@@ -85,6 +85,7 @@ export function Navigation() {
             className="w-10 h-10 rounded-full border-2 border-primary object-cover transition-colors duration-300 hover:border-secondary shadow-[0_0_20px_rgba(59,130,246,1)]"
             whileHover={{ rotate: 5, scale: 1.1 }}
             transition={{ type: "spring", stiffness: 300 }}
+            onClick={() => window.open("https://spm175-portfolio.vercel.app/SM_logo.png", "_blank")}
           />
           Shriniwas Mare
         </motion.div>

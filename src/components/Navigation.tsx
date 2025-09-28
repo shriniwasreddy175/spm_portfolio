@@ -117,7 +117,7 @@ export function Navigation() {
           {/* Resume Button */}
           <Button asChild className="ml-4">
             <motion.a
-              href="/assets/spm175-resume.pdf"
+              href="/assets/ShriniwasMareResume115.pdf"
               whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.15)" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className="inline-block"
@@ -201,7 +201,7 @@ export function Navigation() {
     asChild
     className="w-full bg-primary hover:bg-primary/90 text-black dark:text-white shadow-md hover:shadow-xl transition-all">
           <motion.a
-            href="/assets/spm175-resume.pdf"
+            href="/assets/ShriniwasMareResume115.pdf"
             whileHover={{ scale: 1.03, boxShadow: "0px 8px 20px rgba(59,130,246,0.25)" }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="inline-block text-center w-full font-semibold tracking-wide"

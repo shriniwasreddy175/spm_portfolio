@@ -21,7 +21,7 @@ export function About() {
       icon: Database,
       title: "Backend Development",
       description:
-        "Scalable APIs and databases using Node.js, Python, and cloud technologies.",
+        "Scalable APIs and databases using Spring Boot, RESTful APIs, and cloud technologies.",
     },
     {
       icon: Palette,
@@ -49,17 +49,15 @@ export function About() {
 
   const technologies = [
     "React",
-    "Next.js",
     "TypeScript",
-    "Node.js",
     "Python",
+    "FAST APIs",
+    "JAVA",
+    "RESTful APIs",
+    "Spring Boot",
     "PostgreSQL",
     "MongoDB",
-    "AWS",
-    "Docker",
-    "Figma",
     "Tailwind CSS",
-    "GraphQL",
   ];
 
   const bio = `Diploma student in Computer Engineering at Government Polytechnic Pune, building full-stack web, mobile, and IoT projects with a focus on usability and performance. 

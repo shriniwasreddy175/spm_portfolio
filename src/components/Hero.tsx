@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "./ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, InstagramIcon, Linkedin, Mail } from "lucide-react";
 import { ImageWithFallbackfun } from "./figma/ImageWithFallback";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
@@ -162,6 +162,22 @@ export function Hero() {
                 <span className="sr-only">Email</span>
               </Button>
             </a>
+
+            <a
+              href="https://www.instagram.com/shriniwasreddy175"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full hover:bg-primary/20 hover:scale-110 transition-all duration-300"
+              >
+                <InstagramIcon className="h-5 w-5" />
+                <span className="sr-only">Instagram</span>
+              </Button>
+            </a>
+            
           </motion.div>
         </motion.div>
 

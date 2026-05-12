@@ -3,7 +3,17 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "./ui/sheet";
-import { Menu, X } from "lucide-react";
+import {
+  Menu,
+  X,
+  Home,
+  User,
+  FolderKanban,
+  Briefcase,
+  Mail,
+  FileDown,
+  ChevronRight,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -11,13 +21,25 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isDark, setIsDark] = useState(false);
+
+  // Track the dark class on <html> so the Sheet portal (which renders outside
+  // the theme tree) always gets the correct solid background.
+  useEffect(() => {
+    const html = document.documentElement;
+    const update = () => setIsDark(html.classList.contains("dark"));
+    update();
+    const observer = new MutationObserver(update);
+    observer.observe(html, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "projects", label: "Projects" },
-    { id: "experience", label: "Experience" },
-    { id: "contact", label: "Contact" },
+    { id: "home",       label: "Home",       icon: Home },
+    { id: "about",      label: "About",      icon: User },
+    { id: "projects",   label: "Projects",   icon: FolderKanban },
+    { id: "experience", label: "Experience", icon: Briefcase },
+    { id: "contact",    label: "Contact",    icon: Mail },
   ];
 
   useEffect(() => {
@@ -61,9 +83,15 @@ export function Navigation() {
     }
   };
 
-  const menuVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0 },
+  /* ── animation variants ── */
+  const containerVariants = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: 32 },
+    show:   { opacity: 1, x: 0, transition: { type: "spring" as const, stiffness: 260, damping: 24 } },
   };
 
   return (
@@ -126,101 +154,156 @@ export function Navigation() {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className="inline-block"
             >
-              Resume
+              View Resume
             </motion.a>
           </Button>
         </div>
 
-        {/* Mobile Navigation */}
-<Sheet>
-  <SheetTrigger asChild>
-    <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu">
-      <Menu className="h-6 w-6" />
-      <span className="sr-only">Open menu</span>
-    </Button>
-  </SheetTrigger>
-
-  {/* Keep SheetContent wrapper (we'll render transparent background + animated drawer inside) */}
-  <SheetContent side="right" className="p-0 border-0 bg-transparent">
-    {/* Overlay (clicking it closes the sheet) */}
-    <SheetClose asChild>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.22 }}
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
-      />
-    </SheetClose>
-
-    {/* Drawer Panel (animated slide-in) */}
-    <motion.aside
-      initial={{ x: "100%" }}
-      animate={{ x: 0 }}
-      exit={{ x: "100%" }}
-      transition={{ type: "spring", stiffness: 120, damping: 20 }}
-      className="fixed top-0 right-0 h-full w-80 z-50 p-6
-                 bg-white dark:bg-neutral-900 text-black dark:text-white
-                 shadow-2xl border-l border-primary/20 flex flex-col justify-between"
-    >
-      {/* Header */}
-      <div className="flex justify-between items-center mb-8">
-        <span className="font-bold text-xl text-black dark:text-white">Menu</span>
-        <SheetClose asChild>
-          <Button variant="ghost" size="icon">
-            <X className="h-6 w-6 text-black dark:text-white hover:text-primary" />
-            <span className="sr-only">Close menu</span>
-          </Button>
-        </SheetClose>
-      </div>
-
-      {/* Nav Items */}
-      <motion.div
-        className="flex flex-col gap-6"
-        variants={{
-          show: { transition: { staggerChildren: 0.08 } },
-          hidden: { transition: { staggerChildren: 0.03, staggerDirection: -1 } },
-        }}
-        initial="hidden"
-        animate="show"
-      >
-        {navItems.map((item) => (
-          // Wrap each item with SheetClose so tapping it closes the drawer
-          <SheetClose asChild key={item.id}>
-            <motion.button
-              onClick={() => scrollToSection(item.id)}
-              whileHover={{ scale: 1.04 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="text-lg font-medium text-left text-black dark:text-white hover:text-primary transition-colors"
+        {/* ── Mobile Navigation ── */}
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden relative"
+              aria-label="Open menu"
             >
-              {item.label}
-            </motion.button>
-          </SheetClose>
-        ))}
-      </motion.div>
+              <Menu className="h-5 w-5" />
+            </Button>
+          </SheetTrigger>
 
-      {/* Resume */}
-      <div className="mt-8 space-y-4">
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-medium text-black dark:text-white">Theme</span>
-          <ThemeToggle />
-        </div>
-        <Button
-    asChild
-    className="w-full bg-primary hover:bg-primary/90 text-black dark:text-white shadow-md hover:shadow-xl transition-all">
-          <motion.a
-            href="/assets/ShriniwasMareResume115.pdf"
-            whileHover={{ scale: 1.03, boxShadow: "0px 8px 20px rgba(59,130,246,0.25)" }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="inline-block text-center w-full font-semibold tracking-wide"
+          <SheetContent
+            side="right"
+            style={{ backgroundColor: isDark ? "#0a0a0a" : "#ffffff" }}
+            className="w-[300px] p-0 border-0 overflow-hidden flex flex-col"
           >
-            Resume
-          </motion.a>
-        </Button>
-      </div>
-    </motion.aside>
-  </SheetContent>
-</Sheet>
+            {/* Decorative gradient blob */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-20 -right-20 w-64 h-64 rounded-full
+                         bg-primary/8 blur-3xl"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute bottom-10 -left-16 w-48 h-48 rounded-full
+                         bg-primary/5 blur-2xl"
+            />
+
+            {/* ── Header / Profile card ── */}
+            <div className="relative px-6 pt-6 pb-5 border-b border-border/60">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground">
+                  Navigation
+                </span>
+                <SheetClose asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8 rounded-full hover:bg-muted"
+                    aria-label="Close menu"
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                </SheetClose>
+              </div>
+
+              {/* Mini profile */}
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  <img
+                    src="/SM_logo.png"
+                    alt="Shriniwas Mare"
+                    className="w-12 h-12 rounded-full border-2 border-primary/40 object-cover shadow-md"
+                  />
+                  {/* online dot */}
+                  <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-500 border-2 border-background" />
+                </div>
+                <div>
+                  <p className="font-semibold text-sm text-foreground leading-tight">Shriniwas Mare</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Full-Stack Developer</p>
+                </div>
+              </div>
+            </div>
+
+            {/* ── Nav Items ── */}
+            <motion.nav
+              className="flex-1 px-3 py-4 space-y-1 overflow-y-auto"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              aria-label="Mobile navigation"
+            >
+              {navItems.map((item, index) => {
+                const Icon = item.icon;
+                const isActive = activeSection === item.id;
+                return (
+                  <motion.div key={item.id} variants={itemVariants}>
+                    <SheetClose asChild>
+                      <button
+                        onClick={() => scrollToSection(item.id)}
+                        className={`group w-full flex items-center gap-3 px-3 py-3 rounded-xl
+                                    text-sm font-medium transition-all duration-200
+                                    ${isActive
+                                      ? "bg-primary text-primary-foreground shadow-sm"
+                                      : "text-foreground hover:bg-muted"
+                                    }`}
+                      >
+                        {/* index number */}
+                        <span
+                          className={`text-[10px] font-bold w-5 text-center tabular-nums
+                                      ${isActive ? "text-primary-foreground/60" : "text-muted-foreground"}`}
+                        >
+                          0{index + 1}
+                        </span>
+
+                        {/* icon */}
+                        <span
+                          className={`flex items-center justify-center w-8 h-8 rounded-lg transition-colors
+                                      ${isActive
+                                        ? "bg-primary-foreground/10"
+                                        : "bg-muted group-hover:bg-background"
+                                      }`}
+                        >
+                          <Icon className="h-4 w-4" />
+                        </span>
+
+                        {/* label */}
+                        <span className="flex-1 text-left">{item.label}</span>
+
+                        {/* chevron */}
+                        <ChevronRight
+                          className={`h-3.5 w-3.5 transition-transform duration-200
+                                      ${isActive ? "opacity-60" : "opacity-0 group-hover:opacity-40 group-hover:translate-x-0.5"}`}
+                        />
+                      </button>
+                    </SheetClose>
+                  </motion.div>
+                );
+              })}
+            </motion.nav>
+
+            {/* ── Footer ── */}
+            <div className="px-4 py-4 border-t border-border/60 space-y-3">
+              {/* Theme row */}
+              <div className="flex items-center justify-between px-2">
+                <span className="text-xs font-medium text-muted-foreground">Appearance</span>
+                <ThemeToggle />
+              </div>
+
+              {/* Resume button */}
+              <a
+                href="/assets/ShriniwasMareResume115.pdf"
+                download
+                className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl
+                           bg-primary text-primary-foreground text-sm font-semibold
+                           shadow-sm hover:opacity-90 active:scale-[0.98] transition-all duration-150"
+              >
+                <FileDown className="h-4 w-4" />
+                View Resume
+              </a>
+            </div>
+          </SheetContent>
+        </Sheet>
 
       </div>
     </nav>

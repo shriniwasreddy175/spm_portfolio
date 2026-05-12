@@ -17,27 +17,27 @@ export function Projects() {
       description:
         "IoT Health Monitoring system tracking vitals (BP, heart-rate, SpO₂) and hormones, with real-time alerts and rural-friendly design.",
       image: "/assets/Smart_MedCare.jpg",
-      technologies: ["IoT", "ESP32", "Sensors", "Android", "Healthcare"],
-      liveUrl: "#",
-      githubUrl: "#",
+      technologies: ["IoT", "ESP32", "Sensors", "JavaScript", "Python", "Flask"],
+      liveUrl: "https://medcare-frontend-2z67.onrender.com/",
+      githubUrl: "https://github.com/shriniwasreddy175/MedCare_Project",
     },
     {
       title: "Smart Xerox Centers",
       description:
         "End-to-end print job queue with user/admin dashboards, cost calculation, UPI/QR payments, and live leaderboards.",
       image: "/assets/Smart_Xerox_Centers.jpg",
-      technologies: ["Web", "Queue", "Payments", "UPI", "Dashboards"],
-      liveUrl: "#",
-      githubUrl: "#",
+      technologies: ["Flutter", "Dart", "Java", "Spring Boot", "Payments", "UPI"],
+      liveUrl: "https://xerox-centers.onrender.com/",
+      githubUrl: "https://github.com/shriniwasreddy175/Smart_Xerox_Centers",
     },
     {
       title: "Local Chat App",
       description:
         "Encrypted chat with integrity verification. Includes UI, key handling, and example attacks/defenses write-up.",
       image: "/assets/Local_Chat_App.jpg",
-      technologies: ["Security", "Java", "Python", "Crypto", "Encryption", "App"],
-      liveUrl: "#",
-      githubUrl: "#",
+      technologies: ["Security", "Java", "Android", "Crypto", "Encryption", "Spring Boot"],
+      liveUrl: "https://local-chat-app.onrender.com/",
+      githubUrl: "https://github.com/shriniwasreddy175/Local_Chat_App",
     },
     {
       title: "Smart Radar System",
@@ -45,8 +45,8 @@ export function Projects() {
         "Radar-like IoT system for detecting objects in real-time using sensors and ESP32, visualized with live feedback.",
       image: "/assets/Smart_Radar_System.jpg",
       technologies: ["IoT", "Radar", "Sensors", "ESP32", "Servo-motor", "Arduino"],
-      liveUrl: "#",
-      githubUrl: "#",
+      liveUrl: "https://smart-radar-system.onrender.com/",
+      githubUrl: "https://github.com/shriniwasreddy175/Smart_Radar_System",
     },
     {
       title: "Privacy Over Media",
@@ -54,8 +54,8 @@ export function Projects() {
         "An intelligent privacy-preserving system that hides sensitive user data over social media platforms using genetic algorithms.",
       image: "/assets/Privacy_Over_Media.jpg",
       technologies: ["AI", "Genetic Algorithm", "Privacy", "Social Media"],
-      liveUrl: "#",
-      githubUrl: "#",
+      liveUrl: "https://privacy-over-media.onrender.com/",
+      githubUrl: "https://github.com/shriniwasreddy175/Privacy_Over_Media",
     },
   ];
 

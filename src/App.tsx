@@ -7,7 +7,7 @@ import { Contact } from "./components/Contact";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Navigation />
       
       <main>
@@ -32,7 +32,7 @@ export default function App() {
         </div>
       </main>
       
-      <footer className="bg-muted/30 py-8 px-4 text-center">
+      <footer className="bg-muted/30 py-8 px-4 text-center transition-colors duration-300">
         <div className="max-w-6xl mx-auto">
           <p className="text-muted-foreground">
             © 2025 Shriniwas Mare. All rights reserved. Built with React and Tailwind CSS.

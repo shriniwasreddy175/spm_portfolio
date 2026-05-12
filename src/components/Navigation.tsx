@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "./ui/sheet";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -114,6 +115,9 @@ export function Navigation() {
             </motion.button>
           ))}
 
+          {/* Theme Toggle */}
+          <ThemeToggle />
+
           {/* Resume Button */}
           <Button asChild className="ml-4">
             <motion.a
@@ -129,8 +133,8 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
 <Sheet>
-  <SheetTrigger asChild className="md:hidden">
-    <Button variant="ghost" size="icon">
+  <SheetTrigger asChild>
+    <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu">
       <Menu className="h-6 w-6" />
       <span className="sr-only">Open menu</span>
     </Button>
@@ -196,7 +200,11 @@ export function Navigation() {
       </motion.div>
 
       {/* Resume */}
-      <div className="mt-8">
+      <div className="mt-8 space-y-4">
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-medium text-black dark:text-white">Theme</span>
+          <ThemeToggle />
+        </div>
         <Button
     asChild
     className="w-full bg-primary hover:bg-primary/90 text-black dark:text-white shadow-md hover:shadow-xl transition-all">

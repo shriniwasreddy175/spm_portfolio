@@ -7,7 +7,7 @@ import { Card, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import { Mail, Phone, MapPin, Github, Linkedin, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Loader2, InstagramIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Contact() {
@@ -58,12 +58,6 @@ export function Contact() {
       value: "shriniwasreddy175@gmail.com",
       href: "mailto:shriniwasreddy175@gmail.com",
     },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 7578840845",
-      href: "tel:+917578840845",
-    },
     { icon: MapPin, label: "Location", value: "Pune, India", href: null },
   ];
 
@@ -79,6 +73,12 @@ export function Contact() {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/shriniwasreddy175506592321",
       username: "/in/shriniwasreddy175506592321",
+    },
+    {
+      icon: InstagramIcon,
+      label: "Instagram",
+      href: "https://www.instagram.com/shriniwasreddy175",
+      username: "/shriniwasreddy175",
     },
   ];
 

@@ -24,7 +24,7 @@ export function Projects() {
     {
       title: "EcoScan",
       description:
-        "AI-powered sustainability analysis platform that scans products, estimates carbon footprint, provides eco-friendly recommendations using LLMs, and gamifies sustainable decision-making.",
+        "Sustainability analysis platform that scans products, estimates carbon footprint, provides eco-friendly recommendations, and gamifies sustainable decision-making.",
       image: "/assets/EcoScan.jpg",
       technologies: ["React", "Java", "Spring Boot", "JWT", "LLMs", "RESTful APIs"],
       liveUrl: "https://ecoscan-dk8m.onrender.com",

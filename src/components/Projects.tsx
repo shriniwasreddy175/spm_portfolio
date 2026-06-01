@@ -39,6 +39,15 @@ export function Projects() {
       liveUrl: "https://xerox-centers.onrender.com",
       githubUrl: "https://github.com/shriniwasreddy175/Smart_Xerox_Centers",
     },
+    {
+      title: "Local Chat App",
+      description:
+        "Encrypted chat with integrity verification. Includes UI, key handling, and example attacks/defenses write-up.",
+      image: "/assets/Local_Chat_App.jpg",
+      technologies: ["Security", "Java", "Android", "Crypto", "Encryption", "Spring Boot"],
+      liveUrl: "https://local-chat-app.onrender.com/",
+      githubUrl: "https://github.com/shriniwasreddy175/Local_Chat_App",
+    },
   ];
 
   const [showAll, setShowAll] = useState(false);

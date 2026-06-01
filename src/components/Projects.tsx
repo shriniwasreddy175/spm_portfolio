@@ -40,6 +40,15 @@ export function Projects() {
       githubUrl: "https://github.com/shriniwasreddy175/Smart_Xerox_Centers",
     },
     {
+      title: "Portfolio Website",
+      description:
+        "Personal portfolio website showcasing projects, technical skills and experience with a modern UI and interactive design.",
+      image: "/assets/SHRINIWAS MARE.png",
+      technologies: ["React", "JavaScript", "Tailwind CSS", "HTML", "CSS", "Vercel"],
+      liveUrl: "https://spm175-portfolio.vercel.app",
+      githubUrl: "https://github.com/shriniwasreddy175/spm_portfolio",
+    },
+    {
       title: "Local Chat App",
       description:
         "Encrypted chat with integrity verification. Includes UI, key handling, and example attacks/defenses write-up.",

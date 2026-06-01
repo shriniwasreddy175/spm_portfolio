@@ -15,7 +15,7 @@ export function Projects() {
     {
       title: "Smart MedCare",
       description:
-        "IoT Health Monitoring system tracking vitals (BP, heart-rate, SpO₂) and hormones, with real-time alerts and rural-friendly design.",
+        "IoT based Health Monitoring system tracking vitals (BP, heart-rate, SpO₂) and hormones, with real-time alerts and rural-friendly design.",
       image: "/assets/Smart_MedCare.jpg",
       technologies: ["IoT", "ESP32", "Sensors", "JavaScript", "Python", "Flask"],
       liveUrl: "https://medcare-frontend-2z67.onrender.com",
@@ -33,7 +33,7 @@ export function Projects() {
     {
       title: "Smart Xerox Centers",
       description:
-        "End-to-end print job queue with user/admin dashboards, cost calculation, UPI/QR payments, and live leaderboards.",
+        "A system that manages end-to-end print job queue with user/admin dashboards, cost calculation, UPI/QR payments, and live leaderboards.",
       image: "/assets/Smart_Xerox_Centers.jpg",
       technologies: ["Flutter", "Dart", "Java", "Spring Boot", "Payments", "UPI"],
       liveUrl: "https://xerox-centers.onrender.com",

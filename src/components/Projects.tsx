@@ -54,7 +54,7 @@ export function Projects() {
         "Encrypted chat with integrity verification. Includes UI, key handling, and example attacks/defenses write-up.",
       image: "/assets/Local_Chat_App.jpg",
       technologies: ["Security", "Java", "Android", "AES", "Encryption", "Spring Boot"],
-      liveUrl: "https://local-chat-app.onrender.com/",
+      liveUrl: "https://chatapp-nn41.onrender.com/",
       githubUrl: "https://github.com/shriniwasreddy175/Local_Chat_App",
     },
   ];

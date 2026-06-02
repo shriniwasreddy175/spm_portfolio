@@ -27,7 +27,7 @@ export function Projects() {
         "Sustainability analysis platform that scans products, estimates carbon footprint, provides eco-friendly recommendations, and gamifies sustainable decision-making.",
       image: "/assets/EcoScan.png",
       technologies: ["React", "Java", "Spring Boot", "JWT", "LLMs", "RESTful APIs"],
-      liveUrl: "https://ecoscan-dk8m.onrender.com",
+      liveUrl: "https://ecoscan-nn41.onrender.com",
       githubUrl: "https://github.com/shriniwasreddy175/ecoscan",
     },
     {

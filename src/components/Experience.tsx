@@ -16,60 +16,46 @@ export function Experience() {
 
   const experiences = [
     {
+      title: "Fellowship - Full Stack Developer",
+      company: "ETHDC Technologies Pvt. Ltd.",
+      location: "Pune, India",
+      period: "July 2026 - Present",
+      description:
+        "Working on scalable web applications and AI-driven solutions, contributing to full-stack development, backend services, and intelligent automation projects.",
+      achievements: [
+        "Developing an Agentic AI RAG system for autonomous workflows and knowledge-based AI applications.",
+        "Building and optimizing RESTful APIs, database operations, and backend services.",
+        "Collaborating with cross-functional teams to deliver scalable and user-focused software solutions."
+      ],
+      technologies: ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "AI/ML", "RAG", "Git", "JavaScript"],
+    },
+    {
+      title: "Internship - Full Stack Developer",
+      company: "ETHDC Technologies Pvt. Ltd.",
+      location: "Pune, India",
+      period: "Dec 2025 - June 2026",
+      description:
+        "Gained hands-on experience in enterprise application development, working on ERP modules, backend systems, and database-driven web applications.",
+      achievements: [
+        "Developed and enhanced ERP features using JSP, Spring Boot, and PostgreSQL.",
+        "Designed and integrated REST APIs for efficient data communication between systems.",
+        "Participated in requirement analysis, debugging, testing, and deployment activities."
+      ],
+      technologies: ["JSP", "Servlet", "Java", "Spring Boot", "PostgreSQL", "REST APIs", "Git", "JavaScript"],
+    },
+    {
       title: "Diploma in Computer Engineering",
       company: "Government Polytechnic Pune",
       location: "Pune, India",
-      period: "2023 - Present",
+      period: "2023 - 2026",
       description:
-        "Currently pursuing a diploma in computer engineering, building hands-on skills in web development, mobile apps, and IoT systems.",
+        "Completed Diploma in Computer Engineering, building hands-on skills in web development, mobile apps, and IoT systems.",
       achievements: [
-        "Completed multiple full-stack projects including Smart MedCare and Smart Xerox Centers",
-        "Gained expertise in React, Next.js, Node.js, and IoT with ESP32",
-        "Participated in workshops and practical labs for hardware and software integration",
+        "Completed multiple full-stack projects including Smart MedCare and EcoScan.",
+        "Gained expertise in React, Node.js, Python, Java, SpringBoot, and IoT with ESP32.",
+        "Participated in workshops and practical labs for hardware and software integration.",
       ],
       technologies: ["React", "Next.js", "Node.js", "Python", "ESP32", "Arduino"],
-    },
-    {
-      title: "Major Project: Smart MedCare",
-      company: "Academic Project",
-      location: "Pune, India",
-      period: "2025",
-      description:
-        "Developed a dual IoT health monitoring system for vitals and hormone tracking, suitable for rural and urban areas.",
-      achievements: [
-        "Implemented real-time data acquisition using ESP32 and sensors",
-        "Created mobile app UI for live monitoring",
-        "Tested system for reliability and usability",
-      ],
-      technologies: ["React Native", "ESP32", "Sensors", "Node.js", "Firebase"],
-    },
-    {
-      title: "Internet of Things",
-      company: "Government Polytechnic Pune",
-      location: "Pune, India",
-      period: "Jan 2025 - May 2025",
-      description:
-        "Focused on IoT development, real-time data monitoring, and integrating sensors with microcontrollers.",
-      achievements: [
-        "Developed an IoT-based environmental monitoring system",
-        "Learned sensor interfacing and data visualization techniques",
-        "Collaborated in a team and practiced version control with Git",
-      ],
-      technologies: ["ESP32", "Arduino", "Sensors", "Python", "MQTT"],
-    },
-    {
-      title: "Infosys Springboard Mobile Lab",
-      company: "Infosys Springboard",
-      location: "Pune, India",
-      period: "Sep 2024",
-      description:
-        "Participated in hands-on courses at the mobile lab, learning about IoT, embedded systems, and robotics through practical projects.",
-      achievements: [
-        "Built a mini toy car that stops and changes direction when obstacles are detected",
-        "Completed multiple IoT and embedded systems courses from Springboard curriculum",
-        "Gained practical knowledge of sensors, microcontrollers, and real-time decision-making",
-      ],
-      technologies: ["Arduino", "ESP32", "Sensors", "C/C++", "IoT", "Robotics"],
     },
     {
       title: "Higher Secondary Education (HSC)",
@@ -79,19 +65,11 @@ export function Experience() {
       description:
         "Completed Higher Secondary Certificate (HSC) in the Science stream with focus on Physics, Chemistry, and Biology.",
       achievements: [
-        "Gained strong foundation in core sciences: Physics, Chemistry, and Biology",
-        "Participated in academic events and group study activities",
-        "Built discipline and analytical problem-solving approach",
+        "Gained strong foundation in core sciences: Physics, Chemistry, and Biology.",
+        "Participated in academic events and group study activities.",
+        "Built discipline and analytical problem-solving approach.",
       ],
-      technologies: [
-        "Physics",
-        "Chemistry",
-        "Biology",
-        "Mathematics",
-        "English",
-        "Sanskrit",
-        "Crop production",
-      ],
+      technologies: ["Physics", "Chemistry", "Biology", "Mathematics", "English", "Sanskrit", "Crop production"],
     },
   ];
 

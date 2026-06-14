@@ -60,8 +60,9 @@ export function About() {
     "Tailwind CSS",
   ];
 
-  const bio = `Diploma student in Computer Engineering at Government Polytechnic Pune, building full-stack web, mobile, and IoT projects with a focus on usability and performance. 
-  Passionately about creating scalable and user-friendly solutions, learning emerging technologies, and contributing to real-world projects that solve problems effectively.`;
+  const bio = "Technology enthusiast and software developer passionate about creating innovative digital solutions across web, mobile, IoT, and AI domains. " +
+        "Currently pursuing a Fellowship at ETHDC Technologies while successfully completing a Full Stack Development Internship alongside my Diploma studies. " + 
+        "Experienced in developing scalable applications, exploring emerging technologies, and transforming ideas into practical products. Driven by problem-solving, continuous learning, and building user-focused experiences that create meaningful impact.";
 
   const truncatedBio = bio.split(" ").slice(0, 20).join(" ") + "...";
 

@@ -13,16 +13,16 @@ export function Projects() {
 
   const projects = [
     {
-      title: "Smart MedCare",
+      title: "Smart Xerox Centers (Upcoming)",
       description:
-        "IoT based Health Monitoring system tracking vitals (BP, heart-rate, SpO₂) and hormones, with real-time alerts and rural-friendly design.",
-      image: "/assets/Smart_MedCare.jpg",
-      technologies: ["IoT", "ESP32", "Sensors", "JavaScript", "Python", "Flask"],
-      liveUrl: "https://medcare-frontend-2z67.onrender.com",
-      githubUrl: "https://github.com/shriniwasreddy175/MedCare_Project",
+        "A system that manages end-to-end print job queue with user/admin dashboards, cost calculation, UPI/QR payments, and live leaderboards.",
+      image: "/assets/Smart_Xerox_Centers.jpg",
+      technologies: ["Flutter", "Dart", "Java", "Spring Boot", "Payments", "UPI"],
+      liveUrl: "https://xerox-centers.onrender.com",
+      githubUrl: "https://github.com/shriniwasreddy175/Smart_Xerox_Centers",
     },
     {
-      title: "EcoScan",
+      title: "EcoScan (Ongoing)",
       description:
         "Sustainability analysis platform that scans products, estimates carbon footprint, provides eco-friendly recommendations, and gamifies sustainable decision-making.",
       image: "/assets/EcoScan.png",
@@ -31,13 +31,13 @@ export function Projects() {
       githubUrl: "https://github.com/shriniwasreddy175/ecoscan",
     },
     {
-      title: "Smart Xerox Centers",
+      title: "Smart MedCare (Final Year Project)",
       description:
-        "A system that manages end-to-end print job queue with user/admin dashboards, cost calculation, UPI/QR payments, and live leaderboards.",
-      image: "/assets/Smart_Xerox_Centers.jpg",
-      technologies: ["Flutter", "Dart", "Java", "Spring Boot", "Payments", "UPI"],
-      liveUrl: "https://xerox-centers.onrender.com",
-      githubUrl: "https://github.com/shriniwasreddy175/Smart_Xerox_Centers",
+        "IoT based Health Monitoring system tracking vitals (BP, heart-rate, SpO₂) and hormones, with real-time alerts and rural-friendly design.",
+      image: "/assets/Smart_MedCare.jpg",
+      technologies: ["IoT", "ESP32", "Sensors", "JavaScript", "Python", "Flask"],
+      liveUrl: "https://medcare-frontend-2z67.onrender.com",
+      githubUrl: "https://github.com/shriniwasreddy175/MedCare_Project",
     },
     {
       title: "Portfolio Website",
@@ -49,7 +49,7 @@ export function Projects() {
       githubUrl: "https://github.com/shriniwasreddy175/spm_portfolio",
     },
     {
-      title: "Local Chat App",
+      title: "Local Chat App (Micro Project)",
       description:
         "Encrypted chat with integrity verification. Includes UI, key handling, and example attacks/defenses write-up.",
       image: "/assets/Local_Chat_App.jpg",

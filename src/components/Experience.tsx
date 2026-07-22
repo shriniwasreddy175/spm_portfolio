@@ -16,20 +16,6 @@ export function Experience() {
 
   const experiences = [
     {
-      title: "Fellowship - Full Stack Developer",
-      company: "ETHDC Technologies Pvt. Ltd.",
-      location: "Pune, India",
-      period: "July 2026 - Present",
-      description:
-        "Working on scalable web applications and AI-driven solutions, contributing to full-stack development, backend services, and intelligent automation projects.",
-      achievements: [
-        "Developing an Agentic AI RAG system for autonomous workflows and knowledge-based AI applications.",
-        "Building and optimizing RESTful APIs, database operations, and backend services.",
-        "Collaborating with cross-functional teams to deliver scalable and user-focused software solutions."
-      ],
-      technologies: ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "AI/ML", "RAG", "Git", "JavaScript"],
-    },
-    {
       title: "Internship - Full Stack Developer",
       company: "ETHDC Technologies Pvt. Ltd.",
       location: "Pune, India",

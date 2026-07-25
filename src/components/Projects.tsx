@@ -12,15 +12,15 @@ export function Projects() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const projects = [
-    {
-      title: "Smart Xerox Centers (Upcoming)",
-      description:
-        "A system that manages end-to-end print job queue with user/admin dashboards, cost calculation, UPI/QR payments, and live leaderboards.",
-      image: "/assets/Smart_Xerox_Centers.jpg",
-      technologies: ["Flutter", "Dart", "Java", "Spring Boot", "Payments", "UPI"],
-      liveUrl: "https://xerox-centers.onrender.com",
-      githubUrl: "https://github.com/shriniwasreddy175/Smart_Xerox_Centers",
-    },
+    // {
+    //   title: "Smart Xerox Centers (Upcoming)",
+    //   description:
+    //     "A system that manages end-to-end print job queue with user/admin dashboards, cost calculation, UPI/QR payments, and live leaderboards.",
+    //   image: "/assets/Smart_Xerox_Centers.jpg",
+    //   technologies: ["Flutter", "Dart", "Java", "Spring Boot", "Payments", "UPI"],
+    //   liveUrl: "https://xerox-centers.onrender.com",
+    //   githubUrl: "https://github.com/shriniwasreddy175/Smart_Xerox_Centers",
+    // },
     {
       title: "EcoScan (Ongoing)",
       description:

@@ -60,9 +60,8 @@ export function About() {
     "Tailwind CSS",
   ];
 
-  const bio = "Technology enthusiast and software developer passionate about creating innovative digital solutions across web, mobile, IoT, and AI domains." + 
-              " Successfully completed a Full Stack Development Internship at ETHDC Technologies Private Limited, where I gained hands-on experience in product development, ERP solutions, full-stack applications, and emerging AI technologies. Experienced in developing scalable applications, exploring innovative technologies, and transforming ideas into practical products that solve real-world problems." + 
-              " A Diploma graduate in Computer Engineering from Government Polytechnic Pune, with a strong foundation in software development, system design, and engineering principles. Driven by problem-solving, continuous learning, and collaboration, I am committed to building user-focused solutions that create meaningful impact while growing as a technology professional in the STEM domain.";
+  const bio = "Technology enthusiast and software developer passionate about creating innovative digital solutions across web, mobile, IoT, and AI domains. Successfully completed a Full Stack Development Internship at ETHDC Technologies Private Limited, where I gained hands-on experience in product development, ERP solutions, full-stack applications, and emerging AI technologies. Experienced in developing scalable applications, exploring innovative technologies, and transforming ideas into practical products that solve real-world problems."+
+              "Currently pursuing a B.Tech in Electronics and Telecommunication Engineering at Pimpri Chinchwad College of Engineering (PCCOE) and Diploma graduate in Computer Engineering from Government Polytechnic Pune (GPP). With a strong foundation in software development, system design, and engineering principles, I am driven by problem-solving, continuous learning, and collaboration. I am committed to building user-focused solutions that create meaningful impact while continuously growing as a technology professional in the STEM domain.";
 
   const truncatedBio = bio.split(" ").slice(0, 20).join(" ") + "...";
 

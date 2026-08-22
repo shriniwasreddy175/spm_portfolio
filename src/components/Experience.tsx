@@ -16,8 +16,22 @@ export function Experience() {
 
   const experiences = [
     {
+      title: "B.Tech in Electronics and Telecommunication Engineering",
+      company: "Pimpri Chinchwad College of Engineering (PCCOE)",
+      location: "Pune, India",
+      period: "2026 - Present",
+      description:
+        "Currently pursuing B.Tech in Electronics and Telecommunication Engineering, building a strong foundation in electronics, communication systems, software development, and emerging technologies.",
+      achievements: [
+        "Expanding knowledge in electronics, telecommunication, embedded systems, and computer engineering.",
+        "Applying programming and software development skills to engineering projects and practical applications.",
+        "Exploring emerging technologies through academic projects, hands-on learning, and technical activities.",
+      ],
+      technologies: ["C/C++", "ESP32", "Arduino", "IoT", "Embedded Systems", "Electronics", "Communication Systems"],
+    },
+    {
       title: "Internship - Full Stack Developer",
-      company: "ETHDC Technologies Pvt. Ltd.",
+      company: "ETHDC Technologies Pvt. Ltd. (ETHDC)",
       location: "Pune, India",
       period: "Dec 2025 - June 2026",
       description:
@@ -31,7 +45,7 @@ export function Experience() {
     },
     {
       title: "Diploma in Computer Engineering",
-      company: "Government Polytechnic Pune",
+      company: "Government Polytechnic Pune (GPP)",
       location: "Pune, India",
       period: "2023 - 2026",
       description:
@@ -41,7 +55,7 @@ export function Experience() {
         "Gained expertise in React, Node.js, Python, Java, SpringBoot, and IoT with ESP32.",
         "Participated in workshops and practical labs for hardware and software integration.",
       ],
-      technologies: ["React", "Next.js", "Node.js", "Python", "ESP32", "Arduino"],
+      technologies: ["React", "Next.js", "Node.js", "Python", "Java", "DSA", "SpringBoot", "PostgreSQL", "MongoDB", "ESP32", "IoT"],
     },
     {
       title: "Higher Secondary Education (HSC)",

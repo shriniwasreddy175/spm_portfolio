@@ -19,7 +19,7 @@ export function Experience() {
       title: "B.Tech in Electronics and Telecommunication Engineering",
       company: "Pimpri Chinchwad College of Engineering (PCCOE)",
       location: "Pune, India",
-      period: "2026 - Present",
+      period: "Aug 2026 - Present",
       description:
         "Currently pursuing B.Tech in Electronics and Telecommunication Engineering, building a strong foundation in electronics, communication systems, software development, and emerging technologies.",
       achievements: [
@@ -47,7 +47,7 @@ export function Experience() {
       title: "Diploma in Computer Engineering",
       company: "Government Polytechnic Pune (GPP)",
       location: "Pune, India",
-      period: "2023 - 2026",
+      period: "Aug 2023 - June 2026",
       description:
         "Completed Diploma in Computer Engineering, building hands-on skills in web development, mobile apps, and IoT systems.",
       achievements: [
@@ -61,7 +61,7 @@ export function Experience() {
       title: "Higher Secondary Education (HSC)",
       company: "Rajarshi Shahu Mahavidyalaya Latur (RSML)",
       location: "Latur, India",
-      period: "2020 - 2022",
+      period: "Aug 2020 - June 2022",
       description:
         "Completed Higher Secondary Certificate (HSC) in the Science stream with focus on Physics, Chemistry, and Biology.",
       achievements: [

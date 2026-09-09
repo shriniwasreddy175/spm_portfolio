@@ -42,7 +42,7 @@ export function Projects() {
     {
       title: "Portfolio Website",
       description:
-        "Personal portfolio website showcasing projects, technical skills and experience with a modern UI and interactive design.",
+        "Personal portfolio website showcasing education, projects, technical skills and experience with a modern UI and interactive design.",
       image: "/assets/SHRINIWAS MARE.png",
       technologies: ["React", "JavaScript", "Tailwind CSS", "HTML", "CSS", "Vercel"],
       liveUrl: "https://spm175-portfolio.vercel.app",

@@ -203,7 +203,7 @@ export function Hero() {
               className="relative"
             >
               <ImageWithFallbackfun
-                src="/assets/SPM_PP.png"
+                src="/assets/SPM_PP.jpg"
                 alt="Shriniwas Mare - Professional headshot"
                 className="relative w-80 h-80 rounded-full object-cover border-4 border-background shadow-2xl"
               />
